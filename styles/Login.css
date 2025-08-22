@@ -1,0 +1,159 @@
+/* Reset default spacing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:
+                url('https://c1.wallpaperflare.com/preview/321/923/579/thunder-thunderstorm-violet-purple.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100%;
+            width: 100%;
+            padding: 20px;
+            /* Optional: Makes default text white */
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(90deg, #323393, #03045e);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 10px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            min-height: 60vh;
+        }
+
+        #form-container {
+            background-color: rgba(202, 240, 248, 0.8);
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            color: black;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            padding: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border: 1px solid #ade8f4;
+        }
+
+        button {
+            background: #0077b6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #0096c7;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #03045e, #323393);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        footer p {
+            color: white;
+        }
+
+        footer div a img {
+            margin: 0 10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            transition: transform 0.2s ease;
+        }
+
+        footer div a img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            main {
+                flex-direction: column;
+            }
+
+            #form-container {
+                width: 90%;
+            }
+        }
+
+        dialog {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            max-width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: red;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .close-btn:hover {
+            color: rgb(211, 1, 1);
+        }

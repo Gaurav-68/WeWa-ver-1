@@ -1,0 +1,155 @@
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: url('https://c1.wallpaperflare.com/preview/321/923/579/thunder-thunderstorm-violet-purple.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background-color: #03045e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        form {
+            background-color: rgba(202, 240, 248, 0.9);
+            padding: 50px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border: 1px solid #ade8f4;
+        }
+
+        button {
+            background: #0077b6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #0096c7;
+        }
+
+        footer {
+            background-color: #03045e;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        footer div a img {
+            margin: 0 10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            transition: transform 0.2s ease;
+        }
+
+        footer div a img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            form {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+
+        dialog {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            max-width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        dialog .dialog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .dialog-header h3 {
+            margin: 0;
+            color: #03045e;
+            font-size: 18px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: red;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #333;
+            width: 30px;
+            height: 30px;
+        }
+
+        .close-btn:hover {
+            background: #9b0000;
+        }
+
+        dialog p {
+            margin: 0;
+            color: #333;
+        }
+    

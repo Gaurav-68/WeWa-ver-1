@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    background: url('https://c1.wallpaperflare.com/preview/321/923/579/thunder-thunderstorm-violet-purple.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+}
+
+header {
+    background-color: #03045e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 15px;
+    color: white;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+form {
+    background-color: rgba(202, 240, 248, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ade8f4;
+}
+
+.flex-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.flex-row .form-group {
+    flex: 1;
+    min-width: 45%;
+}
+
+button {
+    background: #0077b6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0096c7;
+}
+
+footer {
+    background-color: #03045e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: auto;
+}
+
+footer div a img {
+    margin: 0 10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    transition: transform 0.2s ease;
+}
+
+footer div a img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .flex-row .form-group {
+        min-width: 100%;
+    }
+}

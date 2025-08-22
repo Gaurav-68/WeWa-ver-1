@@ -1,0 +1,189 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://m-cdn.phonearena.com/images/article/143515-wide-two_1200/Apple-tests-adding-news-to-the-native-Weather-app-in-iOS-16.2-Beta.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      width: 100%;
+      min-height: 100%;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #03045e;
+      border-radius: 10px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    nav ul {
+      list-style: none;
+      background: #0077b6;
+      display: flex;
+      gap: 20px;
+      padding: 10px 30px;
+      border-radius: 10px;
+      justify-content: center;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    nav ul li a.active {
+      color: white;
+      background-color: #023e8a;
+      padding: 6px 12px;
+      border-radius: 10px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      gap: 30px;
+    }
+
+    main h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      text-decoration: underline;
+    }
+
+    form {
+      background-color: rgba(202, 240, 248, 0.8);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    form div {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ade8f4;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    textarea::placeholder {
+      text-align: center;
+    }
+
+    button {
+      background: #0077b6;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0096c7;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #03045e;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      color: white;
+    }
+
+    footer div a img {
+      margin: 0 10px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      transition: transform 0.2s ease;
+    }
+
+    footer div a img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      form {
+        padding: 30px;
+      }
+
+      footer div {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+  

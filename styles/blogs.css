@@ -1,0 +1,163 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://m-cdn.phonearena.com/images/article/143515-wide-two_1200/Apple-tests-adding-news-to-the-native-Weather-app-in-iOS-16.2-Beta.jpg') no-repeat center center fixed;
+            background-size: cover;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #03045e;
+            border-radius: 10px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            flex-wrap: wrap;
+        }
+
+        nav {
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 10px 30px;
+            border-radius: 10px;
+            background: #0077b6;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        nav ul li a.active {
+            color: white;
+            background-color: #023e8a;
+            padding: 6px 12px;
+            border-radius: 10px;
+        }
+
+        main {
+            background-color: rgba(202, 240, 248, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            text-align: center;
+        }
+
+        main h2 {
+            margin-bottom: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        section h3 {
+            margin-bottom: 10px;
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        section a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #0077b6;
+            font-weight: bold;
+        }
+
+        section a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            background: #0077b6;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            color: white;
+        }
+
+        button:hover {
+            background: #0096c7;
+        }
+
+        footer {
+            background-color: #03045e;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        footer p {
+            color: white;
+        }
+
+        footer div a img {
+            margin: 0 10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            transition: transform 0.2s ease;
+        }
+
+        footer div a img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            section p {
+                font-size: 15px;
+            }
+        }
+    
