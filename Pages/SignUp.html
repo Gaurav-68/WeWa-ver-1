@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../src/favicon.png" />
+  <link rel="stylesheet" href="../styles/SignUp.css" />
+  <title>Sign Up</title>
+</head>
+<body>
+  <header>
+    <img src="../src/logo.png" alt="WeWa_Logo" height="100px" />
+    <a href="Login.html"><button>Log-In</button></a>
+  </header>
+
+  <main>
+    <h2>Sign-Up Page</h2>
+    <form id="signUpForm">
+      <!-- Full Name -->
+      <div class="form-group">
+        <label>Full Name</label>
+        <div class="flex-row">
+          <input type="text" id="firstName" name="firstName" placeholder="First Name" required />
+          <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
+        </div>
+      </div>
+
+      <!-- Passwords -->
+      <div class="flex-row">
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter Password" required />
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required />
+        </div>
+      </div>
+
+      <!-- Email & Phone -->
+      <div class="flex-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter Email" required />
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter Phone" maxlength="10" pattern="[0-9]{10}" required />
+        </div>
+      </div>
+
+      <!-- Date of Birth & Gender -->
+      <div class="flex-row">
+        <div class="form-group">
+          <label>Date of Birth</label>
+          <input type="date" id="dob" name="dob" required />
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit">Submit</button>
+      <p style="margin-top: 10px;">Already have an account? <a href="Login.html">Log In</a></p>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; WeWa-WeatherWatch | Privacy Policy | Terms of Use | Cookies Settings | Status</p>
+  </footer>
+
+  <script>
+    // LocalStorage helper functions
+    function saveUser(user) {
+      let users = JSON.parse(localStorage.getItem("users")) || {};
+      users[user.email] = user;
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+    function getUser(email) {
+      const users = JSON.parse(localStorage.getItem("users")) || {};
+      return users[email] || null;
+    }
+
+    document.getElementById("signUpForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const phone = document.getElementById("phone").value.trim();
+      const dob = document.getElementById("dob").value;
+      const gender = document.getElementById("gender").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      if (getUser(email)) {
+        alert("User already exists with this email!");
+        return;
+      }
+
+      saveUser({ firstName, lastName, email, password, phone, dob, gender });
+      alert("Sign-Up Successful! Please log in.");
+      window.location.href = "Login.html";
+    });
+  </script>
+</body>
+</html>

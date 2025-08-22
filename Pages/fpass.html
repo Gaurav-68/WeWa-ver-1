@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../src/favicon.png" />
+  <link rel="stylesheet" href="../styles/fpass.css" />
+  <title>Forgot Password</title>
+</head>
+<body>
+  <header>
+    <img src="../src/logo.png" alt="WeWa_Logo" height="100px" />
+    <a href="Login.html"><button>Log-In</button></a>
+  </header>
+
+  <main>
+    <h2>Forgot Password</h2>
+    <form id="forgotPasswordForm">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your registered email" required />
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter registered phone" maxlength="10" pattern="[0-9]{10}" required />
+      </div>
+
+      <div class="form-group">
+        <label>New Password</label>
+        <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password" required minlength="6" />
+      </div>
+
+      <div class="form-group">
+        <label>Confirm New Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm new password" required minlength="6" />
+      </div>
+
+      <button type="submit">Reset Password</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; WeWa-WeatherWatch | Privacy Policy | Terms of Use | Cookies Settings | Status</p>
+  </footer>
+
+  <script>
+    // LocalStorage helper
+    function getUser(email) {
+      const users = JSON.parse(localStorage.getItem("users")) || {};
+      return users[email] || null;
+    }
+    function saveUser(user) {
+      let users = JSON.parse(localStorage.getItem("users")) || {};
+      users[user.email] = user;
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+
+    document.getElementById("forgotPasswordForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const newPassword = document.getElementById("newPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      const user = getUser(email);
+
+      if (!user) {
+        alert("No user found with this email!");
+        return;
+      }
+
+      if (user.phone !== phone) {
+        alert("Phone number does not match our records!");
+        return;
+      }
+
+      if (newPassword !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Update password
+      user.password = newPassword;
+      saveUser(user);
+
+      alert("Password reset successful! Please log in with your new password.");
+      window.location.href = "Login.html";
+    });
+  </script>
+</body>
+</html>

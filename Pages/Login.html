@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../src/favicon.png" />
+  <link rel="stylesheet" href="../styles/Login.css" />
+  <title>Login Page</title>
+</head>
+<body>
+  <header>
+    <img src="../src/logo.png" alt="WeWa_Logo" height="100px" />
+    <div>
+      <a href="SignUp.html"><button>Sign-Up</button></a>
+    </div>
+  </header>
+
+  <main>
+    <div id="form-container">
+      <h2>Log-In Form</h2>
+      <form id="loginForm">
+        <label for="email">Enter Your Email:
+          <input id="email" name="email" type="email" placeholder="Enter Your Email" required autocomplete="on" />
+        </label>
+        <label for="password">Enter Password:
+          <input id="password" name="password" type="password" placeholder="Enter Password" required minlength="6" />
+        </label>
+        <button type="submit">Submit</button>
+        <a href="fpass.html"><p>Forgot Password?</p></a>
+      </form>
+    </div>
+
+    <!-- Success Dialog -->
+    <dialog id="successDialog">
+      <button id="closeDialog" class="close-btn">×</button>
+      <h3>Login Successful!</h3>
+      <p>Welcome back.</p>
+    </dialog>
+  </main>
+
+  <footer>
+    <p>&copy; WeWa-WeatherWatch | Privacy Policy | Terms of Use | Cookies Settings | Status</p>
+  </footer>
+
+  <script>
+    // LocalStorage helper functions
+    function getUser(email) {
+      const users = JSON.parse(localStorage.getItem("users")) || {};
+      return users[email] || null;
+    }
+    function setLoggedInUser(email) {
+      localStorage.setItem("loggedInUser", email);
+    }
+
+    const form = document.getElementById("loginForm");
+    const dialog = document.getElementById("successDialog");
+    const closeBtn = document.getElementById("closeDialog");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      const user = getUser(email);
+
+      if (!user) {
+        alert("No user found with this email!");
+        return;
+      }
+      if (user.password !== password) {
+        alert("Incorrect password!");
+        return;
+      }
+
+      setLoggedInUser(email);
+      dialog.showModal();
+    });
+
+    closeBtn.addEventListener("click", () => {
+      dialog.close();
+      window.location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>

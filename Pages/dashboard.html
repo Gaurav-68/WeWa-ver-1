@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../src/favicon.png" />
+  <link rel="stylesheet" href="../styles/dashboard.css" />
+  <title>WeWa - WeatherWatch</title>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <img src="../src/logo.png" alt="WeWa Logo" height="100px" />
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <span id="userGreeting" style="font-weight: bold;"></span>
+        <button onclick="logout()">Log-Out</button>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <nav>
+        <ul>
+          <li><a class="weather-nav">Past</a></li>
+          <li><a class="weather-nav active">Present</a></li>
+          <li><a class="weather-nav">Future</a></li>
+        </ul>
+      </nav>
+
+      <form id="location-form">
+        <label for="location">Enter Location:</label><br />
+        <input type="text" id="location" name="location" placeholder="Enter Location/City" required />
+        <button type="submit">Search</button>
+      </form>
+
+      <div id="weather-result" style="margin-top: 20px;"></div>
+
+      <div id="error-dialog" class="dialog-overlay hidden">
+        <div class="dialog-box">
+          <h3>Error</h3>
+          <p id="dialog-message">Something went wrong.</p>
+          <button id="dialog-close">OK</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <iframe src="https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=21.8411&lon=76.8823&zoom=6"
+        height="500px" width="500px"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; WeWa-WeatherWatch | Privacy Policy | Terms of Use | Cookies Settings | Status</p>
+    <br />
+    <div>
+      <a href="https://www.facebook.com/gaurav.pidurkar.31">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfbcYeYgf0wQJ-LSPm3CPbyB7T1p0f5bnaA&s"
+          alt="Facebook_Link" height="40px" />
+      </a>
+      <a
+        href="https://www.instagram.com/gauravpidurkar?igsh=MThlcGZsaTRmc242Ng==&utm_source=ig_contact_invite">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8lv-iEOWtRxGDqsOR-Pa1kIiqN298569zVA&s"
+          alt="Insta_Link" height="40px" />
+      </a>
+      <a href="https://www.linkedin.com/in/gaurav-pidurkar/">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyXpT9Gaq3GkmacX-Cx4bHewH-AAiOm8tDOQ&s"
+          alt="LinkedIn_Link" height="40px" />
+      </a>
+      <a href="https://github.com/Gaurav-68">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6QE2S8G8T7S9FbW3CPqZWYkSyl-OlKuwggw&s"
+          alt="Git_Link" height="40px" />
+      </a>
+    </div>
+  </footer>
+
+  <script src="../src/weather.js"></script>
+  <script>
+    // Access control
+    const email = localStorage.getItem("loggedInUser");
+    if (!email) {
+      alert("Access denied. Please log in first.");
+      window.location.href = "Login.html";
+    } else {
+      const user = JSON.parse(localStorage.getItem(email));
+      document.getElementById("userGreeting").textContent = `Hello, ${user.fullName || email}`;
+    }
+
+    // Logout function
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      alert("Logged out successfully!");
+      window.location.href = "Login.html";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../src/favicon.png" />
+  <link rel="stylesheet" href="../styles/contact.css" />
+  <title>Contact Us</title>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div>
+        <img src="../src/logo.png" alt="WeWa_Logo" height="100px" />
+      </div>
+      <div>
+        <a href="dashboard.html"><button>Back-to-Home</button></a>
+        <a href="Login.html"><button>Log-Out</button></a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="dashboard.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="#" class="active">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <div>
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" placeholder="First Name" required />
+      </div>
+      <div>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name" placeholder="Last Name" required />
+      </div>
+      <div>
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" placeholder="Email ID" required />
+      </div>
+      <div>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Please give your message" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; WeWa-WeatherWatch | Privacy Policy | Terms of Use | Cookies Settings | Status</p>
+    <br />
+    <div>
+      <a href="https://www.facebook.com/gaurav.pidurkar.31">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfbcYeYgf0wQJ-LSPm3CPbyB7T1p0f5bnaA&s"
+          alt="Facebook_Link" height="40px" />
+      </a>
+      <a href="https://www.instagram.com/gauravpidurkar?igsh=MThlcGZsaTRmc242Ng==&utm_source=ig_contact_invite">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8lv-iEOWtRxGDqsOR-Pa1kIiqN298569zVA&s"
+          alt="Insta_Link" height="40px" />
+      </a>
+      <a href="https://www.linkedin.com/in/gaurav-pidurkar/">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyXpT9Gaq3GkmacX-Cx4bHewH-AAiOm8tDOQ&s"
+          alt="LinkedIn_Link" height="40px" />
+      </a>
+      <a href="https://github.com/Gaurav-68">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6QE2S8G8T7S9FbW3CPqZWYkSyl-OlKuwggw&s"
+          alt="Git_Link" height="40px" />
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const contactEntry = {
+        firstName: document.getElementById("first-name").value.trim(),
+        lastName: document.getElementById("last-name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        message: document.getElementById("message").value.trim(),
+        timestamp: new Date().toLocaleString()
+      };
+
+      // Retrieve previous entries or empty array
+      const storedContacts = JSON.parse(localStorage.getItem("contacts")) || [];
+
+      // Append new entry
+      storedContacts.push(contactEntry);
+
+      // Save back to localStorage
+      localStorage.setItem("contacts", JSON.stringify(storedContacts));
+
+      alert("Your message has been submitted successfully!");
+
+      // Optional: Clear form
+      this.reset();
+    });
+  </script>
+</body>
+
+</html>

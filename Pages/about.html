@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../src/favicon.png" />
+  <link rel="stylesheet" href="../styles/about.css" />
+  <title>About - WeWa</title>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <img src="../src/logo.png" alt="WeWa_Logo" height="100px" />
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <span id="userGreeting" style="font-weight: bold;"></span>
+        <a href="dashboard.html"><button>Back to Home</button></a>
+        <button onclick="logout()">Log-Out</button>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="dashboard.html">Home</a></li>
+      <li><a href="#" class="active">About</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>About WeWa - WeatherWatch</h2>
+      <p>
+        This project is developed by <strong><u>Gaurav C. Pidurkar & Ritika Kale</u></strong> during our first year of Post-Graduation in <strong>M.C.A</strong>.
+      </p>
+      <br />
+      <p>
+        With the rise in climate change and global warming, there is a growing need to stay informed about sudden weather shifts. Unfortunately, staying updated can often be overwhelming.
+      </p>
+      <br />
+      <p>
+        <strong>WeWa - WeatherWatch</strong> aims to bridge the gap between individuals and critical weather updates by providing a simple, intuitive, and informative platform.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; WeWa-WeatherWatch | Privacy Policy | Terms of Use | Cookies Settings | Status</p>
+    <br />
+    <div>
+      <a href="https://www.facebook.com/gaurav.pidurkar.31">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfbcYeYgf0wQJ-LSPm3CPbyB7T1p0f5bnaA&s" alt="Facebook" height="40px" />
+      </a>
+      <a href="https://www.instagram.com/gauravpidurkar?igsh=MThlcGZsaTRmc242Ng==&utm_source=ig_contact_invite">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8lv-iEOWtRxGDqsOR-Pa1kIiqN298569zVA&s" alt="Instagram" height="40px" />
+      </a>
+      <a href="https://www.linkedin.com/in/gaurav-pidurkar/">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyXpT9Gaq3GkmacX-Cx4bHewH-AAiOm8tDOQ&s" alt="LinkedIn" height="40px" />
+      </a>
+      <a href="https://github.com/Gaurav-68">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6QE2S8G8T7S9FbW3CPqZWYkSyl-OlKuwggw&s" alt="GitHub" height="40px" />
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Session check
+    const email = localStorage.getItem("loggedInUser");
+    if (!email) {
+      alert("Access denied. Please log in first.");
+      window.location.href = "Login.html";
+    } else {
+      const user = JSON.parse(localStorage.getItem(email));
+      document.getElementById("userGreeting").textContent = `Hello, ${user.fullName || email}`;
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      alert("You’ve been logged out.");
+      window.location.href = "Login.html";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../src/favicon.png" />
+  <link rel="stylesheet" href="../styles/blogs.css" />
+  <title>Blogs - WeWa</title>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <img src="../src/logo.png" alt="WeWa_Logo" height="100px" />
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <span id="userGreeting" style="font-weight: bold;"></span>
+        <a href="dashboard.html"><button>Back-to-Home</button></a>
+        <button onclick="logout()">Log-Out</button>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="dashboard.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#" class="active">Blogs</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Our Latest Blogs</h2>
+
+    <section class="blog-post">
+      <h3>Understanding Weather Forecasting</h3>
+      <p>
+        Discover how meteorologists use data from satellites, radars, and ground stations to predict weather
+        changes. Learn the basics of forecasting and its real-life importance.
+      </p>
+      <a href="#">Read more →</a>
+    </section>
+
+    <section class="blog-post">
+      <h3>Climate Changes: What You Should Know</h3>
+      <p>
+        Explore the causes and effects of climate change, and how it's impacting ecosystems, agriculture, and
+        human life across the globe.
+      </p>
+      <a href="#">Read more →</a>
+    </section>
+
+    <section class="blog-post">
+      <h3>Why Accurate Weather Apps Matter</h3>
+      <p>
+        From planning your day to preparing for emergencies, learn why having precise weather information at
+        your fingertips can be a game-changer.
+      </p>
+      <a href="#">Read more →</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; WeWa-WeatherWatch | Privacy Policy | Terms of Use | Cookies Settings | Status</p>
+    <br />
+    <div>
+      <a href="https://www.facebook.com/gaurav.pidurkar.31">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfbcYeYgf0wQJ-LSPm3CPbyB7T1p0f5bnaA&s"
+          alt="Facebook_Link" height="40px" />
+      </a>
+      <a href="https://www.instagram.com/gauravpidurkar?igsh=MThlcGZsaTRmc242Ng==&utm_source=ig_contact_invite">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8lv-iEOWtRxGDqsOR-Pa1kIiqN298569zVA&s"
+          alt="Insta_Link" height="40px" />
+      </a>
+      <a href="https://www.linkedin.com/in/gaurav-pidurkar/">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyXpT9Gaq3GkmacX-Cx4bHewH-AAiOm8tDOQ&s"
+          alt="LinkedIn_Link" height="40px" />
+      </a>
+      <a href="https://github.com/Gaurav-68">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6QE2S8G8T7S9FbW3CPqZWYkSyl-OlKuwggw&s"
+          alt="Git_Link" height="40px" />
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Session Check
+    const email = localStorage.getItem("loggedInUser");
+    if (!email) {
+      alert("Access denied. Please log in first.");
+      window.location.href = "Login.html";
+    } else {
+      const user = JSON.parse(localStorage.getItem(email));
+      document.getElementById("userGreeting").textContent = `Hello, ${user.fullName || email}`;
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      alert("Logged out successfully.");
+      window.location.href = "Login.html";
+    }
+  </script>
+</body>
+
+</html>
